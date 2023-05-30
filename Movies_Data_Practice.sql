@@ -84,6 +84,11 @@ WHERE Title LIKE '%D'
 GO
 
 -- For Year
+SELECT DISTINCT YEAR
+FROM naija_movies_set
+GO
+
+
 -- For rows with empty column (COUNT)
 SELECT DISTINCT [year], COUNT([year])
 FROM naija_movies_set
@@ -121,6 +126,18 @@ GO
 UPDATE naija_movies_set
 SET [year] = REPLACE(year, ' Video', '')
 WHERE [year] LIKE '% Video';
+GO
+
+-- Replace the columns that have TV Movie at the end with an empty space
+UPDATE naija_movies_set
+SET [year] = REPLACE(year, ' TV Movie', '')
+WHERE [year] LIKE '% TV Movie';
+GO
+
+-- Replace the columns that have TV Special at the end with an empty space
+UPDATE naija_movies_set
+SET [year] = REPLACE(year, ' TV Special', '')
+WHERE [year] LIKE '% TV Special';
 GO
 
 SELECT *
