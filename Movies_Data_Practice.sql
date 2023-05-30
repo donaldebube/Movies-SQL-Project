@@ -72,6 +72,8 @@ EXEC sp_rename 'naija_movies_set.cast', 'Cast', 'COLUMN'
 GO
 
 -- Drop movie_title column
--- 
+ALTER TABLE naija_movies_set
+DROP COLUMN movie_title
+GO
 
 
