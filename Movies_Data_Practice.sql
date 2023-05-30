@@ -84,8 +84,25 @@ WHERE Title LIKE '%D'
 GO
 
 --For Year
-SELECT DISTINCT [year]
+SELECT DISTINCT [year], COUNT([year])
 FROM naija_movies_set
+WHERE [year] = ''
+GROUP BY [year]
+GO
+
+SELECT [year], title
+FROM naija_movies_set
+WHERE [year] = ''
+GROUP BY [year], title
+GO
+
+-- Replace the empty columns with Not Provided
+UPDATE naija_movies_set
+SET [year] = 'Not Provided'
+WHERE year = ''
+GO
+
+
 
 
 
