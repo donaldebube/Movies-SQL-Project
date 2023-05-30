@@ -76,4 +76,16 @@ ALTER TABLE naija_movies_set
 DROP COLUMN movie_title
 GO
 
+-- Check for NULL valiues in the different columns
+-- For Title Column
+SELECT DISTINCT title
+FROM naija_movies_set
+WHERE Title LIKE '%D'
+GO
+
+--For Year
+SELECT DISTINCT [year]
+FROM naija_movies_set
+
+
 
