@@ -83,25 +83,29 @@ FROM naija_movies_set
 WHERE Title LIKE '%D'
 GO
 
---For Year
+-- For Year
+-- For rows with empty column (COUNT)
 SELECT DISTINCT [year], COUNT([year])
 FROM naija_movies_set
 WHERE [year] = ''
 GROUP BY [year]
 GO
 
+-- For rows with empty column
 SELECT [year], title
 FROM naija_movies_set
 WHERE [year] = ''
 GROUP BY [year], title
 GO
 
+-- For rows with 'Video' at the end of the row 
 SELECT [year], title
 FROM naija_movies_set
 WHERE [year] LIKE '%Video'
 GROUP BY [year], title
 GO
 
+-- For rows with 'Video' at the end of the row (COUNT)
 SELECT COUNT(*)
 FROM naija_movies_set
 WHERE [year] LIKE '%Video'
