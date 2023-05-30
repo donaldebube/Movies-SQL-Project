@@ -96,12 +96,32 @@ WHERE [year] = ''
 GROUP BY [year], title
 GO
 
+SELECT [year], title
+FROM naija_movies_set
+WHERE [year] LIKE '%Video'
+GROUP BY [year], title
+GO
+
+SELECT COUNT(*)
+FROM naija_movies_set
+WHERE [year] LIKE '%Video'
+GO
+
 -- Replace the empty columns with Not Provided
 UPDATE naija_movies_set
 SET [year] = 'Not Provided'
 WHERE year = ''
 GO
 
+-- Replace the columns that have video at the end with an empty space
+UPDATE naija_movies_set
+SET [year] = REPLACE(year, ' Video', '')
+WHERE [year] LIKE '% Video';
+GO
+
+SELECT *
+FROM naija_movies_set
+GO
 
 
 
