@@ -1,5 +1,6 @@
 -- Exploring Film Industry Dynamics: A Case Study of Nigerian Local Movies vs. Hollywood Movies
 -- Initial investigation of different tables
+
 SELECT TOP (1000) [Title]
       ,[Year]
       ,[Summary]
@@ -77,13 +78,15 @@ DROP COLUMN movie_title
 GO
 
 -- Check for NULL valiues in the different columns
--- For Title Column
+-- Cleaning the title column
 SELECT DISTINCT title
 FROM naija_movies_set
 WHERE Title LIKE '%D'
 GO
 
 -- For Year
+
+-- Checking the different unique values in the Year column
 SELECT DISTINCT YEAR
 FROM naija_movies_set
 GO
