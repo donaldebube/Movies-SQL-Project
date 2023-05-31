@@ -234,8 +234,8 @@ GO
 
 -- Update 
 UPDATE naija_movies_set
-SET [year] = REPLACE(year, 'V ', '')
-WHERE [year] LIKE 'V%'
+SET [year] = REPLACE(year, '-', '!')
+WHERE [year] LIKE '%-%'
 GO
 
 -- Update 
@@ -261,12 +261,6 @@ SELECT *
 FROM naija_movies_set
 GO
 
--- Verify
-SELECT DISTINCT YEAR
-FROM naija_movies_set
-ORDER BY YEAR
-GO
-
 -- 425
 SELECT COUNT(*)
 FROM naija_movies_set
@@ -278,11 +272,20 @@ FROM naija_movies_set
 WHERE [year] = 'deo'
 GO
 
+UPDATE naija_movies_set
+SET [year] = CONCAT([year], 'Present')
+WHERE [year] LIKE '%-%';
+
+SELECT DISTINCT [year]
+FROM naija_movies_set
+GO
+
+
 -- To remove the empty spaces in the column
--- UPDATE naija_movies_set
--- SET [year] = LTRIM([year])
--- WHERE [year] LIKE ' %'
--- GO
+UPDATE naija_movies_set
+SET [year] = RTRIM([year])
+WHERE [year] LIKE '% '
+GO
 
 -- UPDATE naija_movies_set
 -- SET [year] = TRIM(REPLACE([year], '-', ''))
@@ -302,14 +305,23 @@ FROM naija_movies_set
 GROUP BY certificate
 GO
 
-SELECT *
-FROM naija_movies_set
-WHERE certificate = 'Not Rated'
-GO
-
 -- Drop CERTIFICATE column
 ALTER TABLE naija_movies_set
 DROP COLUMN certificate
+GO
+
+SELECT *
+FROM naija_movies_set
+GO
+
+-- Analysis Proper
+
+-- Get the year that released the most movies
+SELECT DISTINCT YEAR, 
+  COUNT(*) AS [Number of Movies Released]
+FROM naija_movies_set
+GROUP BY YEAR
+ORDER BY [Number of Movies Released] DESC
 GO
 
 
