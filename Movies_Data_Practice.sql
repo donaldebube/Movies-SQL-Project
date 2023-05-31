@@ -187,18 +187,36 @@ SET [year] = REPLACE(year, 'III', '')
 WHERE [year] LIKE 'III%'
 GO
 
+UPDATE naija_movies_set
+SET [year] = REPLACE(year, 'II', '')
+WHERE [year] LIKE 'II%'
+GO
+
+UPDATE naija_movies_set
+SET [year] = REPLACE(year, 'II', '')
+WHERE [year] LIKE 'II%'
+GO
+
+UPDATE naija_movies_set
+SET [year] = REPLACE(year, 'I', '')
+WHERE [year] LIKE 'I%'
+GO
+
+UPDATE naija_movies_set
+SET [year] = REPLACE(year, 'I', '')
+WHERE [year] LIKE 'I%'
+GO
+
 SELECT *
 FROM naija_movies_set
 WHERE year LIKE 'VI%'
 GO
 
-
 SELECT *
 FROM naija_movies_set
-WHERE year LIKE 'III%'
 GO
 
-SELECT *
+SELECT DISTINCT YEAR
 FROM naija_movies_set
 GO
 
