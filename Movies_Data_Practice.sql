@@ -217,6 +217,11 @@ SET [year] = REPLACE(year, 'V ', '')
 WHERE [year] LIKE 'V%'
 GO
 
+UPDATE naija_movies_set
+SET [year] = REPLACE(year, '2011-', '2011')
+WHERE [year] LIKE '2011-%'
+GO
+
 SELECT *
 FROM naija_movies_set
 WHERE year LIKE 'VI%'
@@ -248,6 +253,22 @@ FROM naija_movies_set
 WHERE [year] = 'deo'
 GO
 
+-- To remove the empty spaces in the column
+-- UPDATE naija_movies_set
+-- SET [year] = LTRIM([year])
+-- WHERE [year] LIKE ' %'
+-- GO
 
+-- UPDATE naija_movies_set
+-- SET [year] = TRIM(REPLACE([year], '-', ''))
+-- WHERE [year] LIKE '%-%'
+-- GO
+
+-- UPDATE naija_movies_set
+-- SET [year] = CASE
+--     WHEN RIGHT([year], 1) = '-' THEN LEFT([year], LEN([year]) - 1)
+--     ELSE [year]
+-- END
+-- WHERE [year] LIKE '%-'
 
 
