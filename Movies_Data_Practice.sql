@@ -160,91 +160,108 @@ FROM naija_movies_set
 WHERE [year] = 'I'
 GO
 
+-- Update 
 UPDATE naija_movies_set
 SET [year] = REPLACE(year, 'I', 'Not Provided')
 WHERE [year] = 'I'
 GO
 
+-- Update 
 UPDATE naija_movies_set
 SET [year] = REPLACE(year, 'V', 'Not Provided')
 WHERE [year] = 'V'
 GO
 
+-- Update 
 UPDATE naija_movies_set
 SET [year] = REPLACE(year, 'II', 'Not Provided')
 WHERE [year] = 'II'
 GO
 
+-- Update 
 UPDATE naija_movies_set
 SET [year] = REPLACE(year, 'IX', 'Not Provided')
 WHERE [year] = 'IX'
 GO
 
+-- Update 
 UPDATE naija_movies_set
 SET [year] = REPLACE(year, 'deo', 'Not Provided')
 WHERE [year] = 'deo'
 GO
 
+-- Update 
 UPDATE naija_movies_set
 SET [year] = REPLACE(year, '', 'Not Provided')
 WHERE [year] = ' %'
 GO
 
+-- Update 
 UPDATE naija_movies_set
 SET [year] = REPLACE(year, 'VI', '')
 WHERE [year] LIKE 'VI%'
 GO
 
+-- Update 
 UPDATE naija_movies_set
 SET [year] = REPLACE(year, 'III', '')
 WHERE [year] LIKE 'III%'
 GO
 
+-- Update 
 UPDATE naija_movies_set
 SET [year] = REPLACE(year, 'II', '')
 WHERE [year] LIKE 'II%'
 GO
 
+-- Update 
 UPDATE naija_movies_set
 SET [year] = REPLACE(year, 'II ', '')
 WHERE [year] LIKE 'II%'
 GO
 
+-- Update 
 UPDATE naija_movies_set
 SET [year] = REPLACE(year, 'I', '')
 WHERE [year] LIKE 'I%'
 GO
 
+-- Update 
 UPDATE naija_movies_set
 SET [year] = REPLACE(year, 'X', '')
 WHERE [year] LIKE 'X%'
 GO
 
+-- Update 
 UPDATE naija_movies_set
 SET [year] = REPLACE(year, 'V ', '')
 WHERE [year] LIKE 'V%'
 GO
 
+-- Update 
 UPDATE naija_movies_set
 SET [year] = REPLACE(year, '2011-', '2011')
 WHERE [year] LIKE '2011-%'
 GO
 
+-- Verify
 SELECT *
 FROM naija_movies_set
 WHERE year LIKE 'VI%'
 GO
 
+-- Verify
 SELECT *
 FROM naija_movies_set
 WHERE year LIKE 'VI%'
 GO
 
-
+-- Verify
 SELECT *
 FROM naija_movies_set
 GO
 
+-- Verify
 SELECT DISTINCT YEAR
 FROM naija_movies_set
 ORDER BY YEAR
@@ -295,6 +312,4 @@ ALTER TABLE naija_movies_set
 DROP COLUMN certificate
 GO
 
-SELECT *
-FROM naija_movies_set
-GO
+
