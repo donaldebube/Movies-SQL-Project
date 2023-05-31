@@ -1,3 +1,5 @@
+-- Exploring Film Industry Dynamics: A Case Study of Nigerian Local Movies vs. Hollywood Movies
+
 SELECT TOP (1000) [Title]
       ,[Year]
       ,[Summary]
@@ -276,12 +278,22 @@ GO
 -- END
 -- WHERE [year] LIKE '%-'
 
-SELECT *
+SELECT DISTINCT certificate, 
+  COUNT(certificate) AS [Number of Certificates]
 FROM naija_movies_set
-WHERE [year] = ''
+GROUP BY certificate
 GO
 
-UPDATE naija_movies_set
-SET [year] = REPLACE(year, '', 'Not Provided')
-WHERE [title] = 'Interstate'
+SELECT *
+FROM naija_movies_set
+WHERE certificate = 'Not Rated'
+GO
+
+-- Drop CERTIFICATE column
+ALTER TABLE naija_movies_set
+DROP COLUMN certificate
+GO
+
+SELECT *
+FROM naija_movies_set
 GO
