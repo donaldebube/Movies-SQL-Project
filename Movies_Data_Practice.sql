@@ -1,5 +1,5 @@
 -- Exploring Film Industry Dynamics: A Case Study of Nigerian Local Movies vs. Hollywood Movies
-
+-- Initial investigation of different tables
 SELECT TOP (1000) [Title]
       ,[Year]
       ,[Summary]
@@ -32,9 +32,7 @@ FROM naija_movies_set
 GO
 
 
--- ALTER TABLE naija_movies_set
--- RENAME COLUMN index TO S/N
--- GO
+-- Cleaning the Nigerian Local Dataset
 
 -- Change of column names
 -- For index column
