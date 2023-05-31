@@ -178,6 +178,11 @@ WHERE [year] = 'IX'
 GO
 
 UPDATE naija_movies_set
+SET [year] = REPLACE(year, 'deo', 'Not Provided')
+WHERE [year] = 'deo'
+GO
+
+UPDATE naija_movies_set
 SET [year] = REPLACE(year, 'VI', '')
 WHERE [year] LIKE 'VI%'
 GO
@@ -193,7 +198,7 @@ WHERE [year] LIKE 'II%'
 GO
 
 UPDATE naija_movies_set
-SET [year] = REPLACE(year, 'II', '')
+SET [year] = REPLACE(year, 'II ', '')
 WHERE [year] LIKE 'II%'
 GO
 
@@ -203,8 +208,13 @@ WHERE [year] LIKE 'I%'
 GO
 
 UPDATE naija_movies_set
-SET [year] = REPLACE(year, 'I', '')
-WHERE [year] LIKE 'I%'
+SET [year] = REPLACE(year, 'X', '')
+WHERE [year] LIKE 'X%'
+GO
+
+UPDATE naija_movies_set
+SET [year] = REPLACE(year, 'V ', '')
+WHERE [year] LIKE 'V%'
 GO
 
 SELECT *
@@ -214,10 +224,28 @@ GO
 
 SELECT *
 FROM naija_movies_set
+WHERE year LIKE 'VI%'
+GO
+
+
+SELECT *
+FROM naija_movies_set
 GO
 
 SELECT DISTINCT YEAR
 FROM naija_movies_set
+ORDER BY YEAR
+GO
+
+-- 425
+SELECT COUNT(*)
+FROM naija_movies_set
+WHERE YEAR = 'deo'
+GO
+
+SELECT *
+FROM naija_movies_set
+WHERE [year] = 'deo'
 GO
 
 
