@@ -283,5 +283,5 @@ GO
 
 UPDATE naija_movies_set
 SET [year] = REPLACE(year, '', 'Not Provided')
-WHERE [S/N] = 869
+WHERE [title] = 'Interstate'
 GO
