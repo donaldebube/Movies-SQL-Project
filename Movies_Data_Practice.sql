@@ -177,6 +177,27 @@ SET [year] = REPLACE(year, 'IX', 'Not Provided')
 WHERE [year] = 'IX'
 GO
 
+UPDATE naija_movies_set
+SET [year] = REPLACE(year, 'VI', '')
+WHERE [year] LIKE 'VI%'
+GO
+
+UPDATE naija_movies_set
+SET [year] = REPLACE(year, 'III', '')
+WHERE [year] LIKE 'III%'
+GO
+
+SELECT *
+FROM naija_movies_set
+WHERE year LIKE 'VI%'
+GO
+
+
+SELECT *
+FROM naija_movies_set
+WHERE year LIKE 'III%'
+GO
+
 SELECT *
 FROM naija_movies_set
 GO
