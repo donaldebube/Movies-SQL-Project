@@ -183,6 +183,11 @@ WHERE [year] = 'deo'
 GO
 
 UPDATE naija_movies_set
+SET [year] = REPLACE(year, '', 'Not Provided')
+WHERE [year] = ' %'
+GO
+
+UPDATE naija_movies_set
 SET [year] = REPLACE(year, 'VI', '')
 WHERE [year] LIKE 'VI%'
 GO
@@ -271,4 +276,12 @@ GO
 -- END
 -- WHERE [year] LIKE '%-'
 
+SELECT *
+FROM naija_movies_set
+WHERE [year] = ''
+GO
 
+UPDATE naija_movies_set
+SET [year] = REPLACE(year, '', 'Not Provided')
+WHERE [S/N] = 869
+GO
