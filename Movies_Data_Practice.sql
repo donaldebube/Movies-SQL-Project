@@ -299,12 +299,6 @@ GO
 -- END
 -- WHERE [year] LIKE '%-'
 
-SELECT DISTINCT certificate, 
-  COUNT(certificate) AS [Number of Certificates]
-FROM naija_movies_set
-GROUP BY certificate
-GO
-
 -- Drop CERTIFICATE column
 ALTER TABLE naija_movies_set
 DROP COLUMN certificate
