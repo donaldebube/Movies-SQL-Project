@@ -314,6 +314,14 @@ SELECT *
 FROM naija_movies_set
 GO
 
+-- For Genre
+SELECT DISTINCT Rating, COUNT(*)
+FROM naija_movies_set
+GROUP BY Rating
+--WHERE Rating = 'NULL'
+GO
+
+
 -- Analysis Proper
 
 -- Get the year that released the most movies
