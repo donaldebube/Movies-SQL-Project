@@ -308,13 +308,24 @@ SELECT *
 FROM naija_movies_set
 GO
 
--- For Genre
-SELECT DISTINCT Rating, COUNT(*)
+-- For Rating
+SELECT *
 FROM naija_movies_set
-GROUP BY Rating
---WHERE Rating = 'NULL'
+WHERE Rating IS NULL
+-- GROUP BY Rating
 GO
 
+-- Drop Rating column
+ALTER TABLE naija_movies_set
+DROP COLUMN Rating
+GO
+
+-- For Synopsis
+SELECT Synopsis, COUNT(*)
+FROM naija_movies_set
+--WHERE Synopsis IS NULL
+GROUP BY  Synopsis
+GO
 
 -- Analysis Proper
 
