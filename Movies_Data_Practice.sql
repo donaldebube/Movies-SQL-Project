@@ -351,9 +351,16 @@ GO
   GROUP BY [Cast]
   GO
 
+  -- Pull out the rows that are empty
   SELECT *
   FROM naija_movies_set
-  WHERE [Cast] LIKE '% %'
+  WHERE [Cast] = ''
+  GO
+
+  -- Replace empty columns with 'Not Provided'
+  UPDATE naija_movies_set
+  SET [Cast] = 'Not Provided'
+  WHERE [Cast] = ''
   GO
 
 
