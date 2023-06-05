@@ -324,11 +324,40 @@ GO
   GO
 
   -- For Synopsis
-  SELECT Synopsis, COUNT(*)
-  FROM naija_movies_set
-  --WHERE Synopsis IS NULL
-  GROUP BY  Synopsis
+    SELECT Synopsis, COUNT(*) AS [Number of Synopsis], Title
+    FROM naija_movies_set
+    --WHERE Synopsis IS NULL
+    GROUP BY  Synopsis, Title
+    ORDER BY [Number of Synopsis] DESC
+    GO
+
+    SELECT COUNT(Synopsis)
+    FROM naija_movies_set
+    GO
+
+    SELECT COUNT(Synopsis)
+    FROM naija_movies_set
+    WHERE Synopsis LIKE '%Add a Plot'
+    GO
+    -- Drop Synopsis Column
+    ALTER TABLE naija_movies_set
+    DROP COLUMN Synopsis
+    GO
   GO
+
+  -- For Genre
+  SELECT DISTINCT COUNT([Cast]), [Cast]
+  FROM naija_movies_set
+  GROUP BY [Cast]
+  GO
+
+  SELECT *
+  FROM naija_movies_set
+  WHERE [Cast] LIKE '% %'
+  GO
+
+
+
 
 -- GO
 
