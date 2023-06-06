@@ -345,24 +345,31 @@ GO
     GO
   GO
 
+  -- For Cast
+    SELECT DISTINCT COUNT([Cast]), [Cast]
+    FROM naija_movies_set
+    GROUP BY [Cast]
+    GO
+
+    -- Pull out the rows that are empty
+    SELECT *
+    FROM naija_movies_set
+    WHERE [Cast] = ''
+    GO
+
+    -- Replace empty columns with 'Not Provided'
+    UPDATE naija_movies_set
+    SET [Cast] = 'Not Provided'
+    WHERE [Cast] = ''
+    GO
+  GO
+
   -- For Genre
-  SELECT DISTINCT COUNT([Cast]), [Cast]
+  SELECT Genre, COUNT(Genre) AS [Number]
   FROM naija_movies_set
-  GROUP BY [Cast]
+  GROUP BY Genre
+  ORDER BY Genre DESC
   GO
-
-  -- Pull out the rows that are empty
-  SELECT *
-  FROM naija_movies_set
-  WHERE [Cast] = ''
-  GO
-
-  -- Replace empty columns with 'Not Provided'
-  UPDATE naija_movies_set
-  SET [Cast] = 'Not Provided'
-  WHERE [Cast] = ''
-  GO
-
 
 
 
