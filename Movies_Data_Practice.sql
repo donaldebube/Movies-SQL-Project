@@ -159,10 +159,12 @@ GO
     GO
 
     -- Check I COLUMN
+    /*
     SELECT COUNT(*)
     FROM naija_movies_set
     WHERE [year] = 'I'
     GO
+    */
 
     -- Update 
     UPDATE naija_movies_set
@@ -365,11 +367,15 @@ GO
   GO
 
   -- For Genre
-  SELECT Genre, COUNT(Genre) AS [Number]
-  FROM naija_movies_set
-  GROUP BY Genre
-  ORDER BY Genre DESC
+    SELECT Genre, COUNT(Genre) AS [Number]
+    FROM naija_movies_set
+    GROUP BY Genre
+    ORDER BY Genre DESC
   GO
+  
+  -- For Directors
+  SELECT *
+  FROM 
 
 
 
